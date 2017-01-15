@@ -1,2 +1,3 @@
 # Painter
-Paint images automatically!
+# Overview
+<img src="https://github.com/Manato0x2cc/Painter/raw/master/docs/new_gif.gif"></img>
