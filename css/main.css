@@ -1,0 +1,12 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#menu{
+  z-index:20;
+  position:fixed;
+  bottom:10px; 
+  width:100%;
+}
