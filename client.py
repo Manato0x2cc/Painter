@@ -39,7 +39,7 @@ def openSafari():
     #分割
     path = decode.split("\n")[0]
 
-    subprocess.call(['open','-a',path,'file:///Users/Manato/Desktop/Paint/index.html'])
+    subprocess.call(['open','-a',path,'file://'+os.path.abspath(__file__)])
 
 
 
