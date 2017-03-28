@@ -64,13 +64,9 @@ def load(im):
             #ピクセルを取得
             r,g,b = rgb_im.getpixel((x,y))
 
-            newIm.putpixel( (x,y), (cut(r),cut(g),cut(b),0) )
+            newIm.putpixel( (x,y), (r,g,b,0) )
 
     return newIm
-
-#16に減色
-def cut(num):
-    return int(num / 16) * 16
 
 def im2rgb_ary(im):
     rgb_ary = [[[[] for col in range(16)] for row in range(16)] for what in range(16)]
@@ -84,7 +80,7 @@ def im2rgb_ary(im):
             #ピクセルを取得
             r,g,b = im.getpixel((x,y))
 
-            rgb_ary[int(r/16)][int(g/16)][int(b/16)].append((x,y))
+            rgb_ary[r][g][b].append((x,y))
     return rgb_ary
 
 def paint(im, ary):
@@ -97,11 +93,11 @@ def paint(im, ary):
     addX = int((width - i_width) / 2)
     addY = int((height - i_height) / 2)
 
-    for r in range(16):
+    for r in range(256):
 
-        for g in range(16):
+        for g in range(256):
 
-            for b in range(16):
+            for b in range(256):
 
                 isset = False
 
@@ -111,15 +107,15 @@ def paint(im, ary):
                 if not isset:
                     continue
 
-                if (r==15) and (g==15) and (b==15):
+                if (r==255) and (g==255) and (b==255):
                     continue
 
                 pg.click(60,744, _pause=False)#色設定
 
                 #2Hex
-                h_r = hex(r*16)[2:].zfill(2)
-                h_g = hex(g*16)[2:].zfill(2)
-                h_b = hex(b*16)[2:].zfill(2)
+                h_r = hex(r)[2:].zfill(2)
+                h_g = hex(g)[2:].zfill(2)
+                h_b = hex(b)[2:].zfill(2)
 
                 pg.typewrite(h_r+h_g+h_b,_pause=False)
 
